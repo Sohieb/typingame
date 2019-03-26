@@ -81,6 +81,8 @@ const words = [
 
 // Initialize Game
 function init() {
+    // Init the words
+    initWords(100);
     // show number of seconds in UI
     seconds.innerHTML = currentLevel;
     // load word from array
@@ -91,6 +93,19 @@ function init() {
     setInterval(countdown, 1000);
     // Check game status
     setInterval(checkStatus, 50);
+}
+
+
+// Init the words
+function initWords(count) {
+    fetch('https://mywordapi.herokuapp.com/api/' + count)
+        .then((res) => {
+            console.log(res);
+            res.json();
+        })
+        .then((myJson) => {
+            console.log(myJson);
+        })
 }
 
 
