@@ -15,6 +15,7 @@ const currentLevel = levels.easy;
 
 let time = currentLevel;
 let score = 0;
+let highScore = 0;
 let isPlaying;
 
 
@@ -22,6 +23,7 @@ let isPlaying;
 const wordInput = document.querySelector('#word-input');
 const currentWord = document.querySelector('#current-word');
 const scoreDisplay = document.querySelector('#score');
+const highScoreDisplay = document.querySelector('#high-score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
@@ -76,7 +78,6 @@ const words = [
     'same',
     'able',
 ];
-
 
 // Initialize Game
 function init() {
@@ -152,6 +153,10 @@ function countdown() {
 function checkStatus() {
     if (!isPlaying && time === 0) {
         message.innerHTML = 'Game Over!!!';
+        if (score > highScore) {
+            highScore = score;
+        }
+        highScoreDisplay.innerHTML = highScore;
         score = -1;
     }
 }
