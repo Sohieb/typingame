@@ -120,7 +120,7 @@ function matchWords() {
         message.innerHTML = 'Correct!!!';
         return true;
     } else {
-        message.innerHTML = '';
+        message.innerHTML = 'typing...';
         return false;
     }
 }
